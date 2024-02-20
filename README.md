@@ -7,5 +7,7 @@ Online store for home decor and other interior improvement products.
 3. MySQL (8.2.0)
 4. Jquery & Ajax
 5. HTML/CSS
-*ERD*
 
+**ERD:** (https://github.com/mtheresalayosa/home-furnish-store/blob/main/onlinestore-erd-v3.png)
+
+**Clickable Prototype:** https://github.com/mtheresalayosa/home-furnish-store/tree/clickable-prototype/clickable-prototype
