@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products</title>
 
-    <link rel="shortcut icon" href="../assets/images/organic_shop_fav.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../assets/images/home-furnish-small-icon.ico" type="image/x-icon">
 
     <script src="../assets/js/vendor/jquery.min.js"></script>
     <script src="../assets/js/vendor/popper.min.js"></script>
@@ -26,52 +26,35 @@
 <body>
     <div class="wrapper">
         <header>
+            <img src="../assets/images/home_furnish_logo_text.svg" alt="Home Furnish logo" class="site_logo">
             <form action="process.php" method="post" class="search_form">
                 <input type="text" name="search" placeholder="Search">
             </form>
             <div>
-                <a class="signup_btn" href="signup.html">Signup</a>
-                <a class="login_btn" href="login.html">Login</a>
+                <a class="signup_btn" href="login.html">Login or Create Account</a>
+                <a class="show_cart" href="cart.html">(0)</a>
             </div>
         </header>
-        <section >
-            
-            <a class="show_cart" href="cart.html">Cart (0)</a>
+        <section class="filter_bar">
             <form action="process.php" method="post" class="categories_form">
-                <h3>Categories</h3>
-                <ul>
-                    <li>
-                        <button type="submit" class="active">
-                            <span>36</span><img src="../assets/images/apple.png" alt="#"><h4>All Products</h4>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/apple.png" alt="#"><h4>Vegetables</h4>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/apple.png" alt="#"><h4>Fruits</h4>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/apple.png" alt="#"><h4>Pork</h4>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/apple.png" alt="#"><h4>Beef</h4>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/apple.png" alt="#"><h4>Chicken</h4>
-                        </button>
-                    </li>
-                </ul>
+                <div class="category_types">
+                    <button class="active">Storage & organisation</button>
+                    <button>Furniture</button>
+                    <button>Decoration</button>
+                    <button>Kitchenware & Tableware</button>
+                </div>
+                <div class="search_filter">
+                    <select class="form-select" name="sort_options" id="sort_options">
+                        <option value="">Sort</option>
+                        <option value="1">Price: low to high</option>
+                        <option value="1">Price: low to high</option>
+                        <option value="2">Name</option>
+                        <option value="3">Customer Rating</option>
+                    </select>
+                </div>
             </form>
+        </section>
+        <section>
             <div>
                 <h3>All Products(46)</h3>
                 <ul>

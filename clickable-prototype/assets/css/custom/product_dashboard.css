@@ -46,39 +46,46 @@
   font-family: proxima_nova_thin;
   src: url("../../fonts/Proxima Nova Thin.otf");
 }
-body .wrapper > section .categories_form {
+body .wrapper .filter_bar {
+  display: block;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1;
+  border: 1px solid lightslategray;
+  padding-top: 100px;
+}
+body .wrapper .filter_bar .categories_form {
   display: inline-block;
-  left: 140px;
-  position: absolute;
-  top: 243px;
+  width: 90%;
+  margin-bottom: 10px;
+}
+body .wrapper .filter_bar .categories_form > .category_types *, .search_filter * {
+  display: inline-block;
   vertical-align: top;
-  width: 117px;
 }
-body .wrapper > section .categories_form h3 {
-  color: #A1A1A1;
-  font: 18px/22px proxima_nova_bold, sans-serif;
-  margin-bottom: 23px;
-}
-body .wrapper > section .categories_form ul li button {
+body .wrapper .filter_bar .categories_form button {
   background-color: #fff;
   border-radius: 15px;
-  border: 2px solid #fff;
-  height: 90px;
+  border: 1px solid #F3AA60;
+  height: 40px;
   margin-bottom: 8px;
-  position: relative;
+  padding: 0px 8px;
   transition: 0.21s;
-  width: 90px;
+  width: fit-content;
   box-shadow: 0px 3.17949px 11.9231px rgba(201, 201, 201, 0.2);
 }
-body .wrapper > section .categories_form ul li button.active {
-  border: 2px solid #CFC6FF;
+body .wrapper .filter_bar .categories_form button.active {
+  border: 2px solid #EF6262;
+  background-color: #F3AA60;
+  color: #000;
 }
-body .wrapper > section .categories_form ul li button span {
+body .wrapper > section .categories_form button span {
   background-color: #EDE9FF;
   border-radius: 50%;
   color: #43766C;
   display: inline-block;
-  font: 12px/15px proxima_nova_bold, sans-serif;
+  font: 12px/15px roboto_bold, sans-serif;
   height: 22px;
   min-width: 22px;
   padding: 4px;
@@ -89,7 +96,7 @@ body .wrapper > section .categories_form ul li button span {
 }
 body .wrapper > section .categories_form ul li button h4 {
   color: #A1A1A1;
-  font: 11px/14px proxima_nova_reglar, sans-serif;
+  font: 11px/14px proxima_nova_regular, sans-serif;
   text-transform: capitalize;
 }
 body .wrapper > section .categories_form ul li button:hover {

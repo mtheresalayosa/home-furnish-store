@@ -99,20 +99,28 @@ body .wrapper header {
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.03);
   display: block;
   height: 80px;
-  padding: 18px 60px 18px 138px;
+  padding: 18px 60px 18px 100px;
   position: fixed;
   text-align: right;
   width: 100%;
   z-index: 2;
+}
+body .wrapper header .site_logo {
+  position: absolute;
+  left: 20px;
+  display: inline-block;
+  height: 35px;
+  margin-right: 150px;
+  vertical-align: top;
+  width: 210px;
 }
 body .wrapper header form {
   color: #ADA9C0;
   display: inline-block;
   margin-top: 3px;
   position: absolute;
-  left: 100px;
+  left: 250px;
   margin-bottom: 47px;
-  margin-right: 26px;
   padding-right: 30px;
   vertical-align: top;
 }
@@ -120,7 +128,7 @@ body .wrapper header .search_form input {
   background-color: #FFFFFF;
   border-radius: 10px;
   border: 1px solid #D4E1EC;
-  height: 45px;
+  height: 42px;
   padding: 0px 22px;
   width: 480px;
   font: 16px/19px roboto_regular, sans-serif;
@@ -134,20 +142,11 @@ body .wrapper header .search_form::after {
   display: inline-block;
   vertical-align: top;
   position: absolute;
-  top: 16px;
+  top: 14px;
   right: 47px;
 }
 body .wrapper header .search_form input::placeholder {
   color: #A1A1A1;
-}
-body .wrapper header h1::before {
-  background-image: url("../../images/leaf.svg");
-  content: "";
-  display: inline-block;
-  height: 23px;
-  margin-right: 27px;
-  vertical-align: top;
-  width: 25px;
 }
 body .wrapper header div {
   display: inline-block;
@@ -157,25 +156,34 @@ body .wrapper header div a {
   border-radius: 10px;
   border: none;
   font: 16px/42px roboto, sans-serif;
-  height: 45px;
+  height: 40px;
   transition: 0.21s;
-  width: 95px;
+  width: 210px;
   display: inline-block;
   vertical-align: top;
-  text-align: center;
+  padding: 0px 5px;
 }
 body .wrapper header div a:hover {
+  border: 1px solid #1D5B79;
+  color: #fff;
   opacity: 0.8;
+  text-decoration: none;
 }
 body .wrapper header div a.signup_btn {
-  background-color: #fff;
-  border: 1px solid #43766C;
-  color: #43766C;
+  color: #1D5B79;
   margin-right: 5px;
 }
-body .wrapper header div a.login_btn {
-  background-color: #43766C;
-  color: #fff;
+body .wrapper header div a.signup_btn::before {
+  width: 30px;
+  height: 30px;
+  content: "";
+  background-image: url("../../images/login-signup.svg");
+  background-size: 30px 30px;
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  top: 21px;
+  right: 310px;
 }
 body .wrapper header div .profile_btn {
   font: 18px/46px proxima_nova_bold, sans-serif;
@@ -190,49 +198,47 @@ body .wrapper header div .profile_btn span {
   background-color: #E6E2FF;
   border-radius: 50%;
   font: 18px/21px proxima_nova_bold, sans-serif;
-  color: #43766C;
+  color: #1D5B79;
   display: inline-block;
   vertical-align: top;
   text-align: center;
   padding: 13px 0px;
   margin-right: 5px;
 }
+body .wrapper header .show_cart {
+  border-radius: 10px;
+  border: none;
+  color: #1D5B79;
+  display: inline-block;
+  font: 16px/42px roboto_regular, sans-serif;
+  height: 40px;
+  transition: 0.21s;
+  vertical-align: top;
+  width: 60px;
+  text-align: right;
+}
+body .wrapper header .show_cart:hover {
+  color: #1D5B79;
+  opacity: 0.8;
+}
+body .wrapper header .show_cart::before {
+  background-image: url("../../images/show_cart.svg");
+  background-size: 30px 30px;
+  content: "";
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  vertical-align: top;
+  position: absolute;
+  top: 21px;
+  right: 85px;
+}
 body .wrapper ul {
   list-style: none;
 }
 body .wrapper > section {
-  padding: 100px 60px 0px 140px;
+  padding: 50px 60px 0px 140px;
   position: relative;
-}
-body .wrapper > section .show_cart {
-  background-color: #43766C;
-  border-radius: 10px;
-  border: none;
-  color: #fff;
-  display: inline-block;
-  font: 16px/19px proxima_nova_regular, sans-serif;
-  height: 55px;
-  transition: 0.21s;
-  vertical-align: top;
-  width: 120px;
-  text-align: center;
-  padding: 17px 0px;
-  text-decoration: none;
-  position: sticky;
-  top: 12px;
-  z-index: 3;
-}
-body .wrapper > section .show_cart:hover {
-  opacity: 0.8;
-}
-body .wrapper > section .show_cart::before {
-  background-image: url("../../images/cart.svg");
-  content: "";
-  display: inline-block;
-  height: 20px;
-  margin: 0px 10px 0px 0px;
-  vertical-align: top;
-  width: 20px;
 }
 body .form_modal .modal-dialog {
   max-width: 557px;
@@ -308,7 +314,7 @@ body .form_modal .modal-dialog .modal-content form ul li input {
 }
 body .form_modal .modal-dialog .modal-content form ul li input:focus,
 body .form_modal .modal-dialog .modal-content form ul li input:valid {
-  border-color: #43766C;
+  border-color: #1D5B79;
   padding: 0px 0px 0px 19px;
 }
 body .form_modal .modal-dialog .modal-content form ul li input:focus + label,
@@ -335,12 +341,12 @@ body .form_modal .modal-dialog .modal-content form h3 {
   text-align: right;
 }
 body .form_modal .modal-dialog .modal-content form h3 span {
-  color: #43766C;
+  color: #1D5B79;
   font: 22px/20px roboto_medium, sans-serif;
   margin-left: 30px;
 }
 body .form_modal .modal-dialog .modal-content form button {
-  background-color: #43766C;
+  background-color: #1D5B79;
   border-radius: 10px;
   border: none;
   color: #fff;
@@ -400,7 +406,7 @@ body #signup_modal .modal-dialog .modal-content form ul {
 body #login_modal .modal-dialog .modal-content form .switch_to_signup,
 body #signup_modal .modal-dialog .modal-content form .switch_to_signup {
   font: 16px/19px proxima_nova_regular, sans-serif;
-  color: #43766C;
+  color: #1D5B79;
   background-color: transparent;
   width: auto;
   height: auto;
@@ -469,9 +475,9 @@ body .popover_overlay {
   right: 20px;
 }
 .logout_btn:hover {
-  color: #43766C;
+  color: #1D5B79;
   box-shadow: 0px 4.37332px 12px rgba(156, 137, 255, 0.28);
-  border: 1px solid #43766C;
+  border: 1px solid #1D5B79;
 }
 .logout_btn.show {
   opacity: 1;
