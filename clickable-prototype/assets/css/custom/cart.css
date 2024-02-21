@@ -4,8 +4,8 @@ body .wrapper > section {
 body .wrapper > section > a {
   color: #A1A1A1;
   display: block;
-  font: 18px/22px proxima_nova_bold, sans-serif;
-  margin-bottom: 24px;
+  font: 18px/22px roboto_bold, sans-serif;
+  margin-bottom: 20px;
 }
 body .wrapper > section > a::before {
   background-image: url(../../images/left.svg);
@@ -16,11 +16,18 @@ body .wrapper > section > a::before {
   vertical-align: top;
   width: 7.41px;
 }
+body .wrapper > section > h3 {
+  color: #468B97;
+  height: 12px;
+  margin: 4px 12px 30px 0px;
+  vertical-align: top;
+  width: fit-content;
+}
 body .wrapper > section > section {
   border-top: 1px solid #D8D8D8;
   padding-top: 44px;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
 }
 body .wrapper > section > section::before {
   background-image: url("../../images/carret.svg");
@@ -64,15 +71,15 @@ body .wrapper > section > section .cart_items_form > ul > li.confirm_delete > di
   opacity: 1;
 }
 body .wrapper > section > section .cart_items_form > ul > li:hover {
-  box-shadow: 0px 0px 14.87px rgba(156, 137, 255, 0.33);
+  box-shadow: 0px 0px 14.87px rgba(241, 200, 159, 0.603);
 }
 body .wrapper > section > section .cart_items_form > ul > li img {
   border-radius: 20px;
-  height: 119px;
+  height: 100px;
   left: 0px;
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
-  top: 0px;
+  top: 10px;
   width: 126px;
 }
 body .wrapper > section > section .cart_items_form > ul > li h3 {
@@ -83,7 +90,7 @@ body .wrapper > section > section .cart_items_form > ul > li h3 {
 body .wrapper > section > section .cart_items_form > ul > li > span {
   background-color: #F1F1F1;
   border-radius: 33px;
-  color: #7971D9;
+  color: #468B97;
   display: inline-block;
   font: 15px/17px roboto_semi_bold, sans-serif;
   height: 32px;
@@ -111,7 +118,7 @@ body .wrapper > section > section .cart_items_form > ul > li > ul > li input {
   border: 1px solid #D4E1EC;
   color: #A1A1A1;
   display: inline-block;
-  font: 16px/16px proxima_nova_regular, sans-serif;
+  font: 16px/16px roboto_regular, sans-serif;
   height: 58px;
   text-align: center;
   vertical-align: top;
@@ -204,7 +211,7 @@ body .wrapper > section > section .cart_items_form > ul > li.no_data a {
   border: 1px solid #43766C;
   display: inline-block;
   vertical-align: top;
-  font: 16px/16px proxima_nova_regular, sans-serif;
+  font: 16px/16px roboto_regular, sans-serif;
   border-radius: 10px;
   padding: 18px 0px;
   color: #43766C;
@@ -222,7 +229,11 @@ body .wrapper > section > section .checkout_form {
   vertical-align: top;
   width: 457px;
 }
-body .wrapper > section > section .checkout_form h3 {
+body .wrapper > section > section .checkout_form label {
+  color: #A1A1A1;
+  font: 16px/26px roboto_regular, sans-serif;
+}
+  body .wrapper > section > section .checkout_form h3 {
   color: #7D7D7D;
   font: 18px/20px roboto_medium, sans-serif;
   margin-bottom: 30px;
@@ -256,7 +267,7 @@ body .wrapper > section > section .checkout_form ul li:nth-child(7) {
 body .wrapper > section > section .checkout_form ul li label {
   background-color: #F3F8FD;
   color: #A1A1A1;
-  font: 16px/26px proxima_nova_regular, sans-serif;
+  font: 16px/26px roboto_regular, sans-serif;
   left: 15px;
   padding: 0px 7px;
   pointer-events: none;
@@ -267,7 +278,7 @@ body .wrapper > section > section .checkout_form ul li label {
 body .wrapper > section > section .checkout_form ul li input {
   background-color: #F3F8FD;
   border-radius: 6px;
-  border: 1px solid #DAD3FF;
+  border: 1px solid #F3AA60;
   height: 48px;
   margin-bottom: 25px;
   outline: none;
@@ -303,11 +314,11 @@ body .wrapper > section > section .checkout_form h4.total_amount {
   padding-top: 20px;
 }
 body .wrapper > section > section .checkout_form button {
-  background-color: #43766C;
+  background-color: #1D5B79;
   border-radius: 10px;
   border: none;
   color: #fff;
-  font: 16px/19px proxima_nova_bold, sans-serif;
+  font: 16px/19px roboto_bold, sans-serif;
   height: 55px;
   transition: 0.21s;
   width: 100%;

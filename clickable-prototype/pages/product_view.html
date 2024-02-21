@@ -10,6 +10,7 @@
     <script src="../assets/js/vendor/popper.min.js"></script>
     <script src="../assets/js/vendor/bootstrap.min.js"></script>
     <script src="../assets/js/vendor/bootstrap-select.min.js"></script>
+    <script src="../assets/js/global/product_view.js"></script>
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/css/vendor/bootstrap-select.min.css">
 
@@ -19,7 +20,9 @@
 
 <script>
     $(document).ready(function() {
+        let cart_count = 1;
         $("#add_to_cart").click(function(){
+            $('.show_cart').text('('+ cart_count++ +')');
             $("<span class='added_to_cart'>Added to cart succesfully!</span>")
             .insertAfter(this)
             .fadeIn()
@@ -34,37 +37,29 @@
 <body>
     <div class="wrapper">
         <header>
-            <h1>Let’s order fresh items for you.</h1>
+            <a href="catalogue.html"><img src="../assets/images/home_furnish_logo_text.svg" alt="Home Furnish logo" class="site_logo"></a>
+            <form action="process.php" method="post" class="search_form">
+                <input type="text" name="search" placeholder="Search">
+            </form>
             <div>
-                <a class="signup_btn" href="signup.html">Signup</a>
-                <a class="login_btn" href="login.html">Login</a>
+                <a class="signup_btn" href="login.html">Login or Create Account</a>
+                <a class="show_cart" href="cart.html">(4)</a>
             </div>
         </header>
-        <aside>
-            <a href="catalogue.html"><img src="../assets/images/organic_shop_logo.svg" alt="Organic Shop"></a>
-            <!-- <ul>
-                <li class="active"><a href="#"></a></li>
-                <li><a href="#"></a></li>
-            </ul> -->
-        </aside>
-        <section >
-            <form action="process.php" method="post" class="search_form">
-                <input type="text" name="search" placeholder="Search Products">
-            </form>
-            <a class="show_cart" href="cart.html">Cart (0)</a>
+        <section class="show_product">
             <a href="catalogue.html">Go Back</a>
             <ul>
                 <li>
-                    <img src="../assets/images/burger.png" alt="food">
+                    <img src="../assets/images/cabinet.jpg" alt="cabinet">
                     <ul>
-                        <li class="active"><button class="show_image"><img src="../assets/images/burger.png" alt="food"></button></li>
-                        <li><button class="show_image"><img src="../assets/images/burger.png" alt="food"></button></li>
-                        <li><button class="show_image"><img src="../assets/images/burger.png" alt="food"></button></li>
-                        <li><button class="show_image"><img src="../assets/images/burger.png" alt="food"></button></li>
+                        <li class="active"><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
+                        <li><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
+                        <li><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
+                        <li><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
                     </ul>
                 </li>
                 <li>
-                    <h2>Vegetables</h2>
+                    <h2>MAXIMERA drawer</h2>
                     <ul class="rating">
                         <li></li>
                         <li></li>
@@ -99,8 +94,8 @@
                 <ul>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -114,8 +109,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -129,8 +124,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -144,8 +139,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -159,8 +154,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -174,8 +169,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -189,8 +184,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>

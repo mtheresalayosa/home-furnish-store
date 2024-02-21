@@ -42,7 +42,14 @@ $(document).ready(function() {
         });
         return false;
     });
-
+    $("#billing_info").hide();
+    $("body").on("change", "#same_billing", function() {
+        if($(this).is(":checked")) {
+            $("#billing_info").hide();
+        } else {
+            $("#billing_info").show();
+        }
+    });
     $("body").on("submit", ".checkout_form", function() {
         let form = $(this);
         $.post(form.attr("action"), form.serialize(), function(res) {

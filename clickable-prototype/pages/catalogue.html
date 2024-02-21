@@ -26,42 +26,71 @@
 <body>
     <div class="wrapper">
         <header>
-            <img src="../assets/images/home_furnish_logo_text.svg" alt="Home Furnish logo" class="site_logo">
+            <a href="catalogue.html"><img src="../assets/images/home_furnish_logo_text.svg" alt="Home Furnish logo" class="site_logo"></a>
             <form action="process.php" method="post" class="search_form">
                 <input type="text" name="search" placeholder="Search">
             </form>
             <div>
                 <a class="signup_btn" href="login.html">Login or Create Account</a>
-                <a class="show_cart" href="cart.html">(0)</a>
+                <a class="show_cart" href="cart.html">(4)</a>
             </div>
         </header>
-        <section class="filter_bar">
-            <form action="process.php" method="post" class="categories_form">
-                <div class="category_types">
-                    <button class="active">Storage & organisation</button>
-                    <button>Furniture</button>
-                    <button>Decoration</button>
-                    <button>Kitchenware & Tableware</button>
-                </div>
-                <div class="search_filter">
-                    <select class="form-select" name="sort_options" id="sort_options">
-                        <option value="">Sort</option>
-                        <option value="1">Price: low to high</option>
-                        <option value="1">Price: low to high</option>
-                        <option value="2">Name</option>
-                        <option value="3">Customer Rating</option>
-                    </select>
-                </div>
-            </form>
-        </section>
         <section>
+            <form action="process.php" method="post" class="categories_form">
+                <h3>Sort By</h3>
+                <select name="sort_options" id="sort_options" class="mb-4">
+                    <option value="1">Price: low to high</option>
+                    <option value="2">Price: high to low</option>
+                    <option value="3">Newest</option>
+                    <option value="4">Name</option>
+                </select>
+                <h3>Categories</h3>
+                <ul>
+                    <li>
+                        <input type="checkbox" name="category_id" id="kitchen_appliances" value="8" checked class="form_checkbox">
+                        <label for="kitchen_appliances">Kitchen & appliances</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="storage" value="1" class="form_checkbox">
+                        <label for="storage">Storage & organisation</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="furniture" value="2" class="form_checkbox">
+                        <label for="furniture">Furniture</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="textiles" value="3" class="form_checkbox">
+                        <label for="textiles">Textiles</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="decor" value="4" class="form_checkbox">
+                        <label for="decor">Decoration</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="kitchenware" value="4" class="form_checkbox">
+                        <label for="kitchenware">Kitchenware & tableware</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="bathroom" value="5" class="form_checkbox">
+                        <label for="bathroom">Bathroom Products</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="beds" value="6" class="form_checkbox">
+                        <label for="beds">Beds & mattresses</label>
+                    </li>
+                    <li>
+                        <input type="checkbox" name="category_id" id="home_improv" value="7" class="form_checkbox">
+                        <label for="home_improv">Home improvement</label>
+                    </li>
+                </ul>
+            </form>
             <div>
                 <h3>All Products(46)</h3>
                 <ul>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -75,8 +104,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -90,8 +119,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -105,8 +134,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -120,8 +149,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -135,8 +164,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -150,8 +179,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -165,8 +194,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -180,8 +209,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -195,8 +224,8 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -210,8 +239,23 @@
                     </li>
                     <li>
                         <a href="product_view.html">
-                            <img src="../assets/images/food.png" alt="#">
-                            <h3>Vegetables</h3>
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
+                            <ul class="rating">
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                                <li></li>
+                            </ul>
+                            <span>36 Rating</span>
+                            <span class="price">$ 10</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="product_view.html">
+                            <img src="../assets/images/cabinet.jpg" alt="#">
+                            <h3>MAXIMERA drawer</h3>
                             <ul class="rating">
                                 <li></li>
                                 <li></li>
@@ -224,6 +268,25 @@
                         </a>
                     </li>
                 </ul>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">5</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                </nav>
             </div>
         </section>
     </div>

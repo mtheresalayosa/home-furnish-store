@@ -56,12 +56,7 @@ body .wrapper > section .categories_form {
 }
 body .wrapper > section .categories_form h3 {
   color: #A1A1A1;
-  font: 18px/22px roboto_bold, sans-serif;
-  margin-bottom: 23px;
-}
-body .wrapper > section .categories_form label, select, option {
-  color: #1D5B79;
-  font: 18px/22px roboto_light, sans-serif;
+  font: 18px/22px proxima_nova_bold, sans-serif;
   margin-bottom: 23px;
 }
 body .wrapper > section .categories_form ul li button {
@@ -81,9 +76,9 @@ body .wrapper > section .categories_form ul li button.active {
 body .wrapper > section .categories_form ul li button span {
   background-color: #EDE9FF;
   border-radius: 50%;
-  color: #43766C;
+  color: #9987FA;
   display: inline-block;
-  font: 12px/15px roboto_bold, sans-serif;
+  font: 12px/15px proxima_nova_bold, sans-serif;
   height: 22px;
   min-width: 22px;
   padding: 4px;
@@ -94,25 +89,25 @@ body .wrapper > section .categories_form ul li button span {
 }
 body .wrapper > section .categories_form ul li button h4 {
   color: #A1A1A1;
-  font: 11px/14px roboto_regular, sans-serif;
+  font: 11px/14px proxima_nova_reglar, sans-serif;
   text-transform: capitalize;
 }
 body .wrapper > section .categories_form ul li button:hover {
-  box-shadow: 0px 3.17949px 11.9231px #B19470;
+  box-shadow: 0px 3.17949px 11.9231px rgba(156, 137, 255, 0.45);
 }
 body .wrapper > section .categories_form ul li button img {
   margin-bottom: 4px;
   margin-top: 12px;
   width: 41px;
   height: 41px;
-  object-fit: contain;
+  object-fit: cover;
 }
 body .wrapper > section > div {
-  padding-left: 250px;
+  padding-left: 195px;
 }
 body .wrapper > section > div h3 {
   color: #A1A1A1;
-  font: 18px/22px roboto_bold, sans-serif;
+  font: 18px/22px proxima_nova_bold, sans-serif;
   margin-bottom: 23px;
   text-transform: capitalize;
 }
@@ -133,8 +128,8 @@ body .wrapper > section > div > ul > li {
   width: 245px;
 }
 body .wrapper > section > div > ul > li:hover {
-  border: 2px solid #ef6262bb;
-  box-shadow: 0px 4.37332px 21.87px rgba(234, 173, 113, 0.751);
+  border: 2px solid #CFC6FF;
+  box-shadow: 0px 4.37332px 21.87px rgba(143, 94, 205, 0.34);
   transform: scale(1.03);
 }
 body .wrapper > section > div > ul > li.empty {
@@ -203,7 +198,7 @@ body .wrapper > section > div > ul > li a .price {
   background-color: #F1F1F1;
   border-radius: 33px;
   bottom: 25px;
-  color: #43766C;
+  color: #7971D9;
   display: inline-block;
   font: 15px/17px roboto_bold, sans-serif;
   height: 32px;
@@ -217,17 +212,4 @@ body .wrapper > section > div > ul > li a > span {
   display: inline-block;
   font: 11px/16px roboto_regular, sans-serif;
   vertical-align: top;
-}
-body .wrapper > section > div > nav {
-  margin-left: 540px;
-}
-body .wrapper > section > div > nav > ul > li.page-item.active .page-link{
-  background-color: #468B97 !important;
-  border-color: #1D5B79;
-}
-body .wrapper > section > div > nav > ul > li > a {
-  color: #1D5B79;
-}
-body .wrapper > section > div > nav > ul > li > a:hover {
-  color: #EF6262;
 }
