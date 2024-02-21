@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+
+    <link rel="shortcut icon" href="<?php echo base_url('assets/images/home-furnish-small-icon.ico')?>" type="image/x-icon">
+
+    <script src="<?php echo base_url('assets/js/vendor/jquery.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/vendor/popper.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/vendor/bootstrap.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/vendor/bootstrap-select.min.js')?>"></script>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/vendor/bootstrap.min.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/vendor/bootstrap-select.min.css')?>">
+
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/admin_global.css')?>">
+    <script src="<?php echo base_url('assets/js/global/admin_products.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/global/admin_orders.js')?>"></script>
+</head>
+<script>
+    $(document).ready(function() {
+        $("form").submit(function(event) {
+            event.preventDefault();
+            return false;
+        });
+        /* prototype add */
+        $(".switch").click(function() {
+            window.location.href = "products";
+        });
+    });
+</script>
+<body>
+    <div class="wrapper">
+        <header>
+            <h2>Products</h2>
+            <div>
+                <a class="switch" href="/">Switch to Shop View</a>
+                <button class="profile">
+                    <img src="<?= base_url('assets/images/user-profile.svg')?>" alt="#">
+                </button>
+            </div>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle profile_dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
+                <div class="dropdown-menu admin_dropdown" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="logout">Logout</a>
+                </div>
+            </div>
+        </header>
+        <aside>
+            <a href="#"><img src="../assets/images/hf-logo-top-down.svg" alt="Organic Shop"></a>
+            <ul>
+                <li><a href="/admin/orders">Orders</a></li>
+                <li class="active"><a href="#">Products</a></li>
+            </ul>
+        </aside>
+        <section>
+            <form action="process.php" method="post" class="search_form">
+                <input type="text" name="search" placeholder="Search Products">
+            </form>
+            <button class="add_product" data-toggle="modal" data-target="#add_product_modal">Add Product</button>
+            <form action="process.php" method="post" class="status_form">
+                <h3>Status</h3>
+                <ul>
+                    <li>
+                        <button type="submit" class="active">
+                            <span>36</span><img src="../assets/images/all_orders_icon.svg" alt="#"><h4>All Products</h4>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="submit">
+                            <span>36</span><img src="../assets/images/pending_icon.svg" alt="#"><h4>Pending</h4>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="submit">
+                            <span>36</span><img src="../assets/images/on_process_icon.svg" alt="#"><h4>On-Process</h4>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="submit">
+                            <span>36</span><img src="../assets/images/shipped_icon.svg" alt="#"><h4>Shipped</h4>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="submit">
+                            <span>36</span><img src="../assets/images/delivered_icon.svg" alt="#"><h4>Delivered</h4>
+                        </button>
+                    </li>
+                </ul>
+            </form>
+            <div>
+                <table class="products_table">
+                    <thead>
+                        <tr>
+                            <th><h3>All Products</h3></th>
+                            <th>ID #</th>
+                            <th>Price</th>
+                            <th>Category</th>
+                            <th>Stocks</th>
+                            <th>Sold</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer &nbsp;
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>
+                                    <img src="../assets/images/cabinet.jpg" alt="#">
+                                    MAXIMERA drawer
+                                </span>
+                            </td>
+                            <td><span>123</span></td>
+                            <td><span>$ 10</span></td>
+                            <td><span>Storage & Organisation</span></td>
+                            <td><span>123</span></td>
+                            <td><span>1000</span></td>
+                            <td>
+                                <span>
+                                    <button class="edit_product">Edit</button>
+                                    <button class="delete_product">X</button>
+                                </span>
+                                <form class="delete_product_form" action="process.php" method="post">
+                                    <p>Are you sure you want to remove this item?</p>
+                                    <button type="button" class="cancel_remove">Cancel</button>
+                                    <button type="submit">Remove</button>
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Previous">
+                          <span aria-hidden="true">&laquo;</span>
+                        </a>
+                      </li>
+                      <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                      <li class="page-item"><a class="page-link" href="#">2</a></li>
+                      <li class="page-item"><a class="page-link" href="#">3</a></li>
+                      <li class="page-item"><a class="page-link" href="#">4</a></li>
+                      <li class="page-item"><a class="page-link" href="#">5</a></li>
+                      <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                          <span aria-hidden="true">&raquo;</span>
+                        </a>
+                      </li>
+                    </ul>
+                </nav>
+            </div>
+        </section>
+        <div class="modal fade form_modal" id="add_product_modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <button data-dismiss="modal" aria-label="Close" class="close_modal"></button>
+                    <form class="add_product_form" action="process.php" method="post">
+                        <h2>Add a Product</h2>
+                        <ul>
+                            <li>
+                                <input type="text" name="prouct_name" required>
+                                <label>Product Name</label>
+                            </li>
+                            <li>
+                                <textarea name="description" required></textarea>
+                                <label>Description</label>
+                            </li>
+                            <li>
+                                <label>Category</label>
+                                <select class="selectpicker">
+                                    <option>Storage & Organisations</option>
+                                    <option>Kitchenware & tableware</option>
+                                    <option>Bathroom supplies</option>
+                                    <option>Beds & Mattresses</option>
+                                    <option>Textiles</option>
+                                </select>
+                            </li>
+                            <li>
+                                <input type="number" name="price" value="1" required>
+                                <label>Price</label>
+                            </li>
+                            <li>
+                                <input type="number" name="inventory" value="1" required>
+                                <label>Inventory</label>
+                            </li>
+                            <li>
+                                <label>Upload Images (4 Max)</label>
+                                <ul>
+                                    <li><button type="button" class="upload_image"></button></li>
+                                </ul>
+                                <input type="file" name="image" accept="image/*">
+                            </li>
+                        </ul>
+                        <button type="button" data-dismiss="modal" aria-label="Close">Cancel</button>
+                        <button type="submit">Save</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="popover_overlay"></div>
+</body>
+</html>
