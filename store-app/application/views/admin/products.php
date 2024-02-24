@@ -17,7 +17,6 @@
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/admin_global.css')?>">
     <script src="<?php echo base_url('assets/js/global/admin_products.js')?>"></script>
-    <script src="<?php echo base_url('assets/js/global/admin_orders.js')?>"></script>
 </head>
 <script>
     $(document).ready(function() {
@@ -29,6 +28,36 @@
         $(".switch").click(function() {
             window.location.href = "products";
         });
+
+		// let file;
+		// let photoInp = $("#btn_upload");
+		
+		// let imgDisplay = $("#images_display");
+		// let ctr = $("imgPreview").length;
+		// if(ctr == 4)
+		// {
+		// 	photoInp.prop('disabled', disabled);
+		// }
+		// let add_form = $('form.add_product_form');
+		// let form_data = new FormData(add_form);
+		// photoInp.change(function (e) {
+		// 	let count = 0;
+		// 	Array.from(this.files).map((file) => {
+		// 		if (file) {
+		// 			form_data.append("photos[]", document.getElementById('btn_upload').file);
+		// 			let reader = new FileReader();
+		// 			reader.onload = function (event) {
+		// 				imgDisplay.append("<img id='photo"+ ctr+1 +"' src='"+ event.target.result +"' alt='image' class='imgPreview upload_image' />");
+		// 			};
+		// 			reader.readAsDataURL(file);
+		// 		}
+		// 	});
+		// });
+
+		// $('.add_product_form').submit(function(){
+		// 	$.post()
+		// })
+
     });
 </script>
 <body>
@@ -44,7 +73,7 @@
             <div class="dropdown show">
                 <a class="btn btn-secondary dropdown-toggle profile_dropdown" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></a>
                 <div class="dropdown-menu admin_dropdown" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="logout">Logout</a>
+                    <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
             </div>
         </header>
@@ -61,7 +90,7 @@
             </form>
             <button class="add_product" data-toggle="modal" data-target="#add_product_modal">Add Product</button>
             <form action="process.php" method="post" class="status_form">
-                <h3>Status</h3>
+                <h3>Categories</h3>
                 <ul>
                     <li>
                         <button type="submit" class="active">
@@ -104,270 +133,32 @@
                         </tr>
                     </thead>
                     <tbody>
+<?php foreach($products as $product) {?>
                         <tr>
                             <td>
                                 <span>
                                     <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
+                                    <?= $product["name"] ?>
                                 </span>
                             </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
+                            <td><span><?= $product["id"] ?></span></td>
+                            <td><span>$ <?= number_format($product['price'],2) ?></span></td>
                             <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
+                            <td><span><?= $product["stocks"] ?></span></td>
+                            <td><span><?= $product["unit_sold"] ?></span></td>
                             <td>
                                 <span>
                                     <button class="edit_product">Edit</button>
                                     <button class="delete_product">X</button>
                                 </span>
-                                <form class="delete_product_form" action="process.php" method="post">
+                                <form class="delete_product_form" action="" method="post">
                                     <p>Are you sure you want to remove this item?</p>
                                     <button type="button" class="cancel_remove">Cancel</button>
                                     <button type="submit">Remove</button>
                                 </form>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer &nbsp;
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>
-                                    <img src="../assets/images/cabinet.jpg" alt="#">
-                                    MAXIMERA drawer
-                                </span>
-                            </td>
-                            <td><span>123</span></td>
-                            <td><span>$ 10</span></td>
-                            <td><span>Storage & Organisation</span></td>
-                            <td><span>123</span></td>
-                            <td><span>1000</span></td>
-                            <td>
-                                <span>
-                                    <button class="edit_product">Edit</button>
-                                    <button class="delete_product">X</button>
-                                </span>
-                                <form class="delete_product_form" action="process.php" method="post">
-                                    <p>Are you sure you want to remove this item?</p>
-                                    <button type="button" class="cancel_remove">Cancel</button>
-                                    <button type="submit">Remove</button>
-                                </form>
-                            </td>
-                        </tr>
+<?php } ?>
                     </tbody>
                 </table>
                 <nav aria-label="Page navigation example">
@@ -395,25 +186,23 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <button data-dismiss="modal" aria-label="Close" class="close_modal"></button>
-                    <form class="add_product_form" action="process.php" method="post">
+                    <form class="add_product_form" action="" method="post">
                         <h2>Add a Product</h2>
                         <ul>
                             <li>
-                                <input type="text" name="prouct_name" required>
+                                <input type="text" name="name" required>
                                 <label>Product Name</label>
                             </li>
                             <li>
-                                <textarea name="description" required></textarea>
+                                <textarea name="description"></textarea>
                                 <label>Description</label>
                             </li>
                             <li>
                                 <label>Category</label>
-                                <select class="selectpicker">
-                                    <option>Storage & Organisations</option>
-                                    <option>Kitchenware & tableware</option>
-                                    <option>Bathroom supplies</option>
-                                    <option>Beds & Mattresses</option>
-                                    <option>Textiles</option>
+                                <select class="selectpicker" required>
+<?php foreach($categories as $category){?>
+                                    <option value="<?= $category["id"]?>"><?= $category["name"]?></option>
+<?php } ?>
                                 </select>
                             </li>
                             <li>
@@ -429,11 +218,21 @@
                                 <ul>
                                     <li><button type="button" class="upload_image"></button></li>
                                 </ul>
-                                <input type="file" name="image" accept="image/*">
+                                <input type="file" name="image" accept="image/*" class="image_input">
+								<input type="hidden" name="form_data_action">
+                                <!-- <ul>
+                                    <li>
+										<button type="button" class="upload_image">
+										</button>
+										<div id="images_display">
+										</div>
+									</li>
+									<input type="file" name="photos[]" accept="image/*" multiple id="btn_upload" class="image_input">
+                                </ul> -->
                             </li>
                         </ul>
                         <button type="button" data-dismiss="modal" aria-label="Close">Cancel</button>
-                        <button type="submit">Save</button>
+                        <button type="submit" id="btn_add_product">Save</button>
                     </form>
                 </div>
             </div>

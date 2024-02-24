@@ -22,30 +22,6 @@
   font-family: roboto_black;
   src: url("../../fonts/Roboto-BLack.ttf");
 }
-@font-face {
-  font-family: proxima_nova_regular;
-  src: url("../../fonts/ProximaNova-Regular.otf");
-}
-@font-face {
-  font-family: proxima_nova_black;
-  src: url("../../fonts/Proxima Nova Black.otf");
-}
-@font-face {
-  font-family: proxima_nova_bold;
-  src: url("../../fonts/Proxima Nova Bold.otf");
-}
-@font-face {
-  font-family: proxima_nova_extra_bold;
-  src: url("../../fonts/Proxima Nova Extrabold.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
-}
 .modal-backdrop.show {
   opacity: 0.7;
   background-color: #696596;
@@ -94,7 +70,7 @@ body .wrapper aside ul li.active a {
   background-color: #F3F8FD;
   background-position: 0px 0px;
 }
-header {
+.wrapper header {
   background-color: #fff;
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.03);
   display: block;
@@ -105,7 +81,7 @@ header {
   width: 100%;
   z-index: 2;
 }
-header .site_logo {
+.wrapper header .site_logo {
   position: absolute;
   left: 20px;
   display: inline-block;
@@ -114,7 +90,7 @@ header .site_logo {
   vertical-align: top;
   width: 210px;
 }
-header form {
+.wrapper header form {
   color: #ADA9C0;
   display: inline-block;
   margin-top: 3px;
@@ -124,7 +100,7 @@ header form {
   padding-right: 30px;
   vertical-align: top;
 }
-header .search_form input {
+.wrapper header .search_form input {
   background-color: #FFFFFF;
   border-radius: 10px;
   border: 1px solid #D4E1EC;
@@ -134,7 +110,7 @@ header .search_form input {
   font: 16px/19px roboto_regular, sans-serif;
   color: #787878;
 }
-header .search_form::after {
+.wrapper header .search_form::after {
   width: 21px;
   height: 21px;
   content: "";
@@ -145,35 +121,35 @@ header .search_form::after {
   top: 14px;
   right: 47px;
 }
-header .search_form input::placeholder {
+.wrapper header .search_form input::placeholder {
   color: #A1A1A1;
 }
-header div {
+.wrapper header div.header_content, .btn_profile, .show_cart {
   display: inline-block;
   vertical-align: top;
 }
-header div a {
+.wrapper header div a.show_cart, a.signup_btn {
   border-radius: 10px;
   border: none;
   font: 16px/42px roboto, sans-serif;
   height: 40px;
   transition: 0.21s;
-  width: 210px;
+  width: 160px;
   display: inline-block;
   vertical-align: top;
   padding: 0px 5px;
 }
-header div a:hover {
+.wrapper header div a.show_cart:hover, a.signup_btn:hover {
   border: 1px solid #1D5B79;
-  color: #fff;
+  color: #468B97;
   opacity: 0.8;
   text-decoration: none;
 }
-header div a.signup_btn {
+.wrapper header div a.signup_btn {
   color: #1D5B79;
-  margin-right: 5px;
+  margin-left: 5px;
 }
-header div a.signup_btn::before {
+.wrapper header div a.signup_btn::before {
   width: 30px;
   height: 30px;
   content: "";
@@ -181,23 +157,23 @@ header div a.signup_btn::before {
   background-size: 30px 30px;
   display: inline-block;
   vertical-align: top;
-  position: absolute;
-  top: 21px;
-  right: 310px;
+  position: relative;
+  top: 3px;
+  right: 5px;
 }
-header div .profile_btn {
-  font: 18px/46px proxima_nova_bold, sans-serif;
+.wrapper header div .profile_btn {
+  font: 18px/46px roboto_bold, sans-serif;
   color: #A1A1A1;
   width: auto;
   background-color: transparent;
   border: none;
 }
-header div .profile_btn span {
+.wrapper header div .profile_btn span {
   width: 42px;
   height: 42px;
   background-color: #E6E2FF;
   border-radius: 50%;
-  font: 18px/21px proxima_nova_bold, sans-serif;
+  font: 18px/21px roboto_bold, sans-serif;
   color: #1D5B79;
   display: inline-block;
   vertical-align: top;
@@ -205,7 +181,22 @@ header div .profile_btn span {
   padding: 13px 0px;
   margin-right: 5px;
 }
-header .show_cart {
+.wrapper header div div button.profile {
+  border: none;
+  width: auto;
+  border-radius: 0px;
+  background-color: transparent;
+}
+.wrapper header div div button.profile img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  position: relative;
+	right: 5px;
+	background-color: #fff;
+	padding: 5px;
+}
+.wrapper header .show_cart {
   border-radius: 10px;
   border: none;
   color: #1D5B79;
@@ -214,14 +205,13 @@ header .show_cart {
   height: 40px;
   transition: 0.21s;
   vertical-align: top;
-  width: 60px;
+  width: 60px !important;
   text-align: right;
 }
-header .show_cart:hover {
+.wrapper header .show_cart:hover {
   color: #1D5B79;
-  opacity: 0.8;
 }
-header .show_cart::before {
+.wrapper header .show_cart::before {
   background-image: url("../../images/show_cart.svg");
   background-size: 30px 30px;
   content: "";
@@ -231,7 +221,7 @@ header .show_cart::before {
   vertical-align: top;
   position: absolute;
   top: 21px;
-  right: 85px;
+  right: 89px;
 }
 body .wrapper ul {
   list-style: none;
@@ -326,7 +316,7 @@ body .form_modal .modal-dialog .modal-content form ul li input:valid + label {
 body .form_modal .modal-dialog .modal-content form ul li label {
   background-color: #fff;
   color: #A1A1A1;
-  font: 16px/26px proxima_nova_regular, sans-serif;
+  font: 16px/26px roboto_regular, sans-serif;
   left: 15px;
   padding: 0px 7px;
   pointer-events: none;
@@ -350,7 +340,7 @@ body .form_modal .modal-dialog .modal-content form button {
   border-radius: 10px;
   border: none;
   color: #fff;
-  font: 16px/19px proxima_nova_bold, sans-serif;
+  font: 16px/19px roboto_bold, sans-serif;
   height: 55px;
   margin: 10px 0px 50px 0px;
   transition: 0.21s;
@@ -405,7 +395,7 @@ body #signup_modal .modal-dialog .modal-content form ul {
 }
 body #login_modal .modal-dialog .modal-content form .switch_to_signup,
 body #signup_modal .modal-dialog .modal-content form .switch_to_signup {
-  font: 16px/19px proxima_nova_regular, sans-serif;
+  font: 16px/19px roboto_regular, sans-serif;
   color: #1D5B79;
   background-color: transparent;
   width: auto;
@@ -455,7 +445,7 @@ body .popover_overlay {
   box-shadow: 0px 4.37332px 21.8666px rgba(0, 0, 0, 0.07);
   color: #787878;
   display: inline-block;
-  font: 16px/22px proxima_nova_regular, sans-serif;
+  font: 16px/22px roboto_regular, sans-serif;
   height: 64px;
   opacity: 0;
   padding: 21px 20px;
@@ -508,4 +498,32 @@ body .popover_overlay {
 }
 .show_popover_overlay {
   overflow: hidden;
+}
+.profile_dropdown {
+  position: relative;
+  right: 30px;
+  top: -5px;
+  border: none !important;
+  background: none !important;
+	width: 60px !important;
+	text-align: right;
+	border-radius: 50%;
+	opacity: 0.9%;
+	border: 1px solid magenta;
+  font: 16px/42px roboto, sans-serif;
+}
+.dropdown {
+	border: none !important;
+	position: absolute;
+	top: 17px;
+	right: 90px;
+}
+.user_dropdown.show {
+	width: 40px;
+  top: -10px !important;
+  left: 15px !important;
+  background: #468B97;
+}
+.user_dropdown a {
+  color: #FFFFFF;
 }

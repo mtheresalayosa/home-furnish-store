@@ -9,4 +9,13 @@ $(document).ready(function(){
         $(".popover_overlay").fadeOut();
         $("body").removeClass("show_popover_overlay");
     });
+	$('.profile_dropdown').on('click', function() {
+		let newTop = $(this).offset().top + $(this).outerHeight();
+		let newLeft = $(this).offset().left;
+			
+		$('.admin_dropdown').css({
+			'top': newTop + 'px',
+			'left': newLeft + 'px'
+		});
+	});
 });

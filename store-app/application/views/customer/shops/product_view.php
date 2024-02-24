@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>HomeFurnish.store - Let's decorate your dream home.</title>
 
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/home-furnish-small-icon.ico')?>" type="image/x-icon">
 
@@ -15,42 +15,32 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/vendor/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/vendor/bootstrap-select.min.css')?>">
 
+    <script src="<?php echo base_url('assets/js/global/product_view.js')?>"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/global.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/product_view.css')?>">
 </head>
 
 <script>
     $(document).ready(function() {
-        let cart_count = 1;
-        $("#add_to_cart").click(function(){
-            $('.show_cart').text('('+ cart_count++ +')');
-            $("<span class='added_to_cart'>Added to cart succesfully!</span>")
-            .insertAfter(this)
-            .fadeIn()
-            .delay(1000)
-            .fadeOut(function() {
-                $(this).remove();
-            });
-           return false;
-        });
+        
     })
 </script>
 <body>
     <div class="wrapper">
         <section class="show_product">
-            <a href="catalogue.html">Go Back</a>
+            <a href="/">Go Back</a>
             <ul>
                 <li>
-                    <img src="../assets/images/cabinet.jpg" alt="cabinet">
+                    <img src="../assets/images/<?= $product["main_photo"]?>" alt="cabinet">
                     <ul>
-                        <li class="active"><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
-                        <li><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
-                        <li><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
-                        <li><button class="show_image"><img src="../assets/images/cabinet.jpg" alt="cabinet"></button></li>
+                        <li class="active"><button class="show_image"><img src="../assets/images/<?= $product["main_photo"]?>" alt="cabinet"></button></li>
+                        <li><button class="show_image"><img src="../assets/images/<?= $product["photo_1"]?>" alt="cabinet"></button></li>
+                        <li><button class="show_image"><img src="../assets/images/<?= $product["photo_2"]?>" alt="cabinet"></button></li>
+                        <li><button class="show_image"><img src="../assets/images/<?= $product["photo_3"]?>" alt="cabinet"></button></li>
                     </ul>
                 </li>
                 <li>
-                    <h2>MAXIMERA drawer</h2>
+                    <h2><?= $product["name"] ?></h2>
                     <ul class="rating">
                         <li></li>
                         <li></li>
@@ -59,13 +49,13 @@
                         <li></li>
                     </ul>
                     <span>36 Rating</span>
-                    <span class="amount">$ 10</span>
-                    <p>Lorem ipsum dolor sit amet consectetur. Eget sit posuere enim facilisi. Pretium orci venenatis habitasse gravida nulla tincidunt iaculis. Aliquet at massa quisque libero viverra ut sed. Est vulputate est rutrum nunc nunc pellentesque ultrices pharetra. Mauris euismod sed vel quisque tincidunt suspendisse sed turpis volutpat.</p>
-                    <form action="" method="post" id="add_to_cart_form">
+                    <span class="amount">$ <?= number_format($product['price'],2) ?></span>
+                    <p><?= $product["description"] ?></p>
+                    <form action="/add_to_cart" method="post" id="add_to_cart_form">
                         <ul>
                             <li>
-                                <label>Quantity</label>
-                                <input type="text" min-value="1" value="1">
+                                <label for="quantity">Quantity</label>
+                                <input type="text" min-value="1" value="1" id="quantity" name="quantity">
                                 <ul>
                                     <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
                                     <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
@@ -73,9 +63,14 @@
                             </li>
                             <li>
                                 <label>Total Amount</label>
-                                <span class="total_amount">$ 10</span>
+                                <span class="total_amount">$ <?= $product['price'] ?></span>
                             </li>
-                            <li><button type="submit" id="add_to_cart">Add to Cart</button></li>
+                            <li>
+								<input type="hidden" name="subtotal_amount" id="subtotal_amount">
+								<input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+								<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+								<button type="submit" id="add_to_cart">Add to Cart</button>
+							</li>
                         </ul>
                     </form>
                 </li>

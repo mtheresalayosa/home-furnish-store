@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeFurnish - Cart</title>
+    <title>HomeFurnish.store - Let's decorate your dream home.</title>
 
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/home-furnish-small-icon.ico')?>" type="image/x-icon">
 
@@ -27,14 +27,15 @@
             <section>
                 <form class="cart_items_form">
                     <ul>
+<?php foreach($carts as $cart) { ?>
                         <li>
-                            <img src="../assets/images/cabinet.jpg" alt="">
-                            <h3>MAXIMERA drawer</h3>
-                            <span>$ 10</span>
+                            <img src="../assets/images/<?= $cart["main_photo"] ?>" alt="">
+                            <h3><?= $cart["name"] ?></h3>
+                            <span>$ <?= $cart["price"] ?></span>
                             <ul>
                                 <li>
                                     <label>Quantity</label>
-                                    <input type="text" min-value="1" value="1">
+                                    <input type="text" min-value="1" value="<?= $cart["quantity"] ?>">
                                     <ul>
                                         <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
                                         <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
@@ -42,9 +43,11 @@
                                 </li>
                                 <li>
                                     <label>Total Amount</label>
-                                    <span class="total_amount">$ 10</span>
+                                    <span class="total_amount">$ <?= $cart["subtotal_amount"] ?></span>
                                 </li>
                                 <li>
+									<input type="hidden" name="product_id" value="<?= $cart["product_id"] ?>">
+									<input type="hidden" name="cart_id" value="<?= $cart["id"] ?>">
                                     <button type="button" class="remove_item"></button>
                                 </li>
                             </ul>
@@ -54,141 +57,7 @@
                                 <button type="button" class="remove">Remove</button>
                             </div>
                         </li>
-                        <li>
-                            <img src="../assets/images/cabinet.jpg" alt="">
-                            <h3>MAXIMERA drawer</h3>
-                            <span>$ 10</span>
-                            <ul>
-                                <li>
-                                    <label>Quantity</label>
-                                    <input type="text" min-value="1" value="1">
-                                    <ul>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <label>Total Amount</label>
-                                    <span class="total_amount">$ 10</span>
-                                </li>
-                                <li>
-                                    <button type="button" class="remove_item"></button>
-                                </li>
-                            </ul>
-                            <div>
-                                <p>Are you sure you want to remove this item?</p>
-                                <button type="button" class="cancel_remove">Cancel</button>
-                                <button type="button" class="remove">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../assets/images/cabinet.jpg" alt="">
-                            <h3>MAXIMERA drawer</h3>
-                            <span>$ 10</span>
-                            <ul>
-                                <li>
-                                    <label>Quantity</label>
-                                    <input type="text" min-value="1" value="1">
-                                    <ul>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <label>Total Amount</label>
-                                    <span class="total_amount">$ 10</span>
-                                </li>
-                                <li>
-                                    <button type="button" class="remove_item"></button>
-                                </li>
-                            </ul>
-                            <div>
-                                <p>Are you sure you want to remove this item?</p>
-                                <button type="button" class="cancel_remove">Cancel</button>
-                                <button type="button" class="remove">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../assets/images/cabinet.jpg" alt="">
-                            <h3>MAXIMERA drawer</h3>
-                            <span>$ 10</span>
-                            <ul>
-                                <li>
-                                    <label>Quantity</label>
-                                    <input type="text" min-value="1" value="1">
-                                    <ul>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <label>Total Amount</label>
-                                    <span class="total_amount">$ 10</span>
-                                </li>
-                                <li>
-                                    <button type="button" class="remove_item"></button>
-                                </li>
-                            </ul>
-                            <div>
-                                <p>Are you sure you want to remove this item?</p>
-                                <button type="button" class="cancel_remove">Cancel</button>
-                                <button type="button" class="remove">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../assets/images/cabinet.jpg" alt="">
-                            <h3>MAXIMERA drawer</h3>
-                            <span>$ 10</span>
-                            <ul>
-                                <li>
-                                    <label>Quantity</label>
-                                    <input type="text" min-value="1" value="1">
-                                    <ul>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <label>Total Amount</label>
-                                    <span class="total_amount">$ 10</span>
-                                </li>
-                                <li>
-                                    <button type="button" class="remove_item"></button>
-                                </li>
-                            </ul>
-                            <div>
-                                <p>Are you sure you want to remove this item?</p>
-                                <button type="button" class="cancel_remove">Cancel</button>
-                                <button type="button" class="remove">Remove</button>
-                            </div>
-                        </li>
-                        <li>
-                            <img src="../assets/images/cabinet.jpg" alt="">
-                            <h3>MAXIMERA drawer</h3>
-                            <span>$ 10</span>
-                            <ul>
-                                <li>
-                                    <label>Quantity</label>
-                                    <input type="text" min-value="1" value="1">
-                                    <ul>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
-                                        <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <label>Total Amount</label>
-                                    <span class="total_amount">$ 10</span>
-                                </li>
-                                <li>
-                                    <button type="button" class="remove_item"></button>
-                                </li>
-                            </ul>
-                            <div>
-                                <p>Are you sure you want to remove this item?</p>
-                                <button type="button" class="cancel_remove">Cancel</button>
-                                <button type="button" class="remove">Remove</button>
-                            </div>
-                        </li>
+<?php } ?>
                     </ul>
                 </form>
                 <form class="checkout_form">

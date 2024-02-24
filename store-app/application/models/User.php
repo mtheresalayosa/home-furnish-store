@@ -17,7 +17,7 @@ class User extends CI_Model
 			return "valid";
 		}
 		else {
-			return $validation_errors();
+			return validation_errors();
 		}
 	}
 	/* Validate user details during login */
@@ -31,34 +31,34 @@ class User extends CI_Model
 			return "valid";
 		}
 		else {
-			return $validation_errors();
+			return validation_errors();
 		}
 	}
 	/* Validates user credentials if exists and valid */
 	function validate_credential($user, $details)
 	{
-		if(!empty($user))
+		if(count($user) > 0)
 		{
 			$encrypted_password = md5($details["password"] ."". $user["salt"]);
-			if($details["password"] !== $encrypted_password)
+			if($user["password"] !== $encrypted_password)
 			{
-				return "Invalid login credentials.";
+				return "<p>Invalid login credentials.</p>";
 			}
 			return "valid";
 		}
 		else {
-			return "This email is not yet registered";
+			return "<p>This email is not yet registered.</p>";
 		}
 	}
 	/* Fetch user details by user id */
 	function fetch_by_id($user_id)
 	{
-		return $this->db->query("SELECT * FROM `users` WHERE id = ?", $user_id)->row_array();
+		return $this->db->query("SELECT `id`, `first_name`, `last_name`, `user_level` FROM `users` WHERE id = ?", $user_id)->row_array();
 	}
 	/* Fetch all users and their details */
 	function fetch_all()
 	{
-		return $this->db->query("SELECT * FROM `users`")->result_array();
+		return $this->db->query("SELECT `id`, `first_name`, `last_name`, `user_level` FROM `users`")->result_array();
 	}
 	/* Search users table depending on the values set in parameter.
 	Parameters:
@@ -71,7 +71,7 @@ class User extends CI_Model
 	Return:
 		array()
 	*/
-	function search($user, $operator1, $operator2)
+	function search($user, $operator1, $operator2 = null)
 	{
 		$values = array();
 		$fields = "";
@@ -82,7 +82,7 @@ class User extends CI_Model
 			$counter++;
 			// e.g. column_name LIKE ?
 			$fields .= "$key $operator1 ? ";
-			if(!empty($operator2) && $counter < count($user))
+			if($operator2 && $counter < count($user))
 			{
 				// e.g. AND, OR, NOT 
 				$fields .= "$operator2 ";
@@ -93,15 +93,64 @@ class User extends CI_Model
 		return $this->db->query("SELECT * FROM users WHERE $fields", $values)->result_array();
 	}
 	/* Create new row in users table */
-	function add()
+	function add($user)
 	{
-		$query = "INSERT INTO users (`first_name`, `last_name`, `email`, `password`, `salt`) VALUES (?,?,?,?,?)";
-		$values = array($user["first_name"], $user["last_name"], $user["email"], $user["password"], $user["salt"]);
+		if(count($this->fetch_all()) == 0)
+		{
+			$user["user_level"] = 5; //set to superadmin
+		}
+		else {
+			$user["user_level"] = 1; //set to ordinary user
+		}
+
+		$query = "INSERT INTO users (`first_name`, `last_name`, `email`, `password`, `salt`, `user_level`) VALUES (?,?,?,?,?,?)";
+		$values = array($user["first_name"], $user["last_name"], $user["email"], $user["password"], $user["salt"], $user["user_level"]);
 		return $this->db->query($query, $values);
 	}
 	/* Cleans data thru XSS filtering */
 	function clean_data($data)
 	{
 		return $this->security->xss_clean($data);
+	}
+	/* Check if user is admin */
+	function is_admin()
+	{
+		$current_user = $this->current_user();
+		if($current_user["user_level"] == '5')
+		{
+			return true;
+		} 
+		else {
+			return false;
+		}
+	}
+	/* Check if user is logged in */
+	function is_loggedin()
+	{
+		$current_user = $this->current_user();
+		if($current_user)
+		{
+			return true;
+		} 
+		else {
+			return false;
+		}
+	}
+	function current_user()
+	{
+		$current_user = $this->session->userdata("user");
+		if($current_user)
+		{
+			return $current_user;
+		}
+		else {
+			if(!$this->session->userdata("session_user"))
+			{
+				$guest_id = "999".rand(9000,9999);
+				$session_user = array("id"=>$guest_id, "user_level"=>"0", "first_name"=>"GuestUser", "last_name"=>$guest_id); //user_level:0 means guest
+				$this->session->set_userdata("session_user",$session_user);
+			}
+			return $this->session->userdata("session_user");
+		}
 	}
 }

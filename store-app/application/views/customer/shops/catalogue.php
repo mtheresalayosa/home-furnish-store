@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>HomeFurnish.store - Let's decorate your dream home.</title>
 
     <link rel="shortcut icon" href="<?php echo base_url('assets/images/home-furnish-small-icon.ico')?>" type="image/x-icon">
 
@@ -17,241 +17,49 @@
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/global.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/product_dashboard.css')?>">
+    <script src="<?php echo base_url('assets/js/global/global.js')?>"></script>
 </head>
 <body>
     <div class="wrapper">
         <section>
-            <form action="process.php" method="post" class="categories_form">
+            <form action="/products/search" method="get" class="categories_form">
                 <h3>Sort By</h3>
                 <select name="sort_options" id="sort_options" class="mb-4">
-                    <option value="1">Price: low to high</option>
-                    <option value="2">Price: high to low</option>
-                    <option value="3">Newest</option>
-                    <option value="4">Name</option>
+<?php foreach($sort_options as $key=>$value) {?>
+                    <option value="<?= $key ?>"><?= $value ?></option>
+<?php } ?>
                 </select>
                 <h3>Categories</h3>
                 <ul>
+<?php foreach($product_categories as $category){?>
                     <li>
-                        <input type="checkbox" name="category_id" id="kitchen_appliances" value="8" checked class="form_checkbox">
-                        <label for="kitchen_appliances">Kitchen & appliances</label>
+                        <input type="checkbox" name="category[]" id="<?= $category["name"] ?>" value="<?= $category["id"] ?>" class="form_checkbox">
+                        <label for="<?= $category["name"] ?>"><?= $category["name"] ?></label>
                     </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="storage" value="1" class="form_checkbox">
-                        <label for="storage">Storage & organisation</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="furniture" value="2" class="form_checkbox">
-                        <label for="furniture">Furniture</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="textiles" value="3" class="form_checkbox">
-                        <label for="textiles">Textiles</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="decor" value="4" class="form_checkbox">
-                        <label for="decor">Decoration</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="kitchenware" value="4" class="form_checkbox">
-                        <label for="kitchenware">Kitchenware & tableware</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="bathroom" value="5" class="form_checkbox">
-                        <label for="bathroom">Bathroom Products</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="beds" value="6" class="form_checkbox">
-                        <label for="beds">Beds & mattresses</label>
-                    </li>
-                    <li>
-                        <input type="checkbox" name="category_id" id="home_improv" value="7" class="form_checkbox">
-                        <label for="home_improv">Home improvement</label>
-                    </li>
+<?php } ?>
                 </ul>
+				<input type="submit" value="Search">
             </form>
             <div>
                 <h3>All Products(46)</h3>
                 <ul>
+<?php foreach($products as $product){?>
                     <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
+                        <a href="product_view/<?= $product["id"] ?>">
+                            <img src='../assets/images/<?= $product["photo"]?>' alt="#">
+                            <h3><?= $product["name"] ?></h3>
+                            <!-- <ul class="rating">
                                 <li></li>
                                 <li></li>
                                 <li></li>
                                 <li></li>
                                 <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
+                            </ul> -->
+                            <!-- <span>36 Rating</span> -->
+                            <span class="price">$ <?= number_format($product['price'],2) ?></span>
                         </a>
                     </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="product_view">
-                            <img src="../assets/images/cabinet.jpg" alt="#">
-                            <h3>MAXIMERA drawer</h3>
-                            <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul>
-                            <span>36 Rating</span>
-                            <span class="price">$ 10</span>
-                        </a>
-                    </li>
+<?php } ?>
                 </ul>
                 <nav aria-label="Page navigation example">
                     <ul class="pagination">

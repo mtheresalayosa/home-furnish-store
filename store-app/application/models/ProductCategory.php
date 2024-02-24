@@ -5,20 +5,18 @@ class ProductCategory extends CI_Model
 {
 	function form_validation()
 	{
-		$this->load->form_validation();
 		$this->form_validation->set_rules('name','Name','required');
 
 		if($this->form_validation->run())
 		{
 			return "valid";
 		}
-		else
-		{
+		else {
 			return $validation_errors();
 		}
 	}
 	function fetch_all()
 	{
-		return $this->db->query("SELECT * FROM product_categories")->result_array();
+		return $this->db->query("SELECT `id`,`name`,`parent_id` FROM product_categories ORDER BY name")->result_array();
 	}
 }

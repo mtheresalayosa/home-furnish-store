@@ -1,7 +1,7 @@
 body .wrapper > section > a {
   color: #A1A1A1;
   display: block;
-  font: 18px/22px proxima_nova_bold, sans-serif;
+  font: 18px/22px roboto_bold, sans-serif;
   margin-bottom: 24px;
 }
 body .wrapper > section > a::before {
@@ -108,7 +108,7 @@ body .wrapper > section > section .cart_items_form > ul > li > ul > li input {
   border: 1px solid #D4E1EC;
   color: #A1A1A1;
   display: inline-block;
-  font: 16px/16px proxima_nova_regular, sans-serif;
+  font: 16px/16px roboto_regular, sans-serif;
   height: 58px;
   text-align: center;
   vertical-align: top;
@@ -201,7 +201,7 @@ body .wrapper > section > section .cart_items_form > ul > li.no_data a {
   border: 1px solid #43766C;
   display: inline-block;
   vertical-align: top;
-  font: 16px/16px proxima_nova_regular, sans-serif;
+  font: 16px/16px roboto_regular, sans-serif;
   border-radius: 10px;
   padding: 18px 0px;
   color: #43766C;
@@ -253,7 +253,7 @@ body .wrapper > section > section .checkout_form ul li:nth-child(7) {
 body .wrapper > section > section .checkout_form ul li label {
   background-color: #F3F8FD;
   color: #A1A1A1;
-  font: 16px/26px proxima_nova_regular, sans-serif;
+  font: 16px/26px roboto_regular, sans-serif;
   left: 15px;
   padding: 0px 7px;
   pointer-events: none;
@@ -304,7 +304,7 @@ body .wrapper > section > section .checkout_form button {
   border-radius: 10px;
   border: none;
   color: #fff;
-  font: 16px/19px proxima_nova_bold, sans-serif;
+  font: 16px/19px roboto_bold, sans-serif;
   height: 55px;
   transition: 0.21s;
   width: 100%;

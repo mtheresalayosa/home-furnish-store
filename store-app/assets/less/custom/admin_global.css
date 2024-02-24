@@ -22,30 +22,6 @@
   font-family: roboto_black;
   src: url("../../fonts/Roboto-BLack.ttf");
 }
-@font-face {
-  font-family: proxima_nova_regular;
-  src: url("../../fonts/ProximaNova-Regular.otf");
-}
-@font-face {
-  font-family: proxima_nova_black;
-  src: url("../../fonts/Proxima Nova Black.otf");
-}
-@font-face {
-  font-family: proxima_nova_bold;
-  src: url("../../fonts/Proxima Nova Bold.otf");
-}
-@font-face {
-  font-family: proxima_nova_extra_bold;
-  src: url("../../fonts/Proxima Nova Extrabold.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
-}
 body {
   background-color: #212332;
 }
@@ -84,7 +60,7 @@ body .wrapper aside ul li a {
   height: 65px;
   vertical-align: top;
   width: 100%;
-  font: 16px/19px proxima_nova_regular, sans-serif;
+  font: 16px/19px roboto_regular, sans-serif;
   color: #C3C5D5;
   text-decoration: none;
   padding: 24px 30px;
@@ -103,7 +79,7 @@ body .wrapper aside ul li a::before {
 body .wrapper aside ul li.active a {
   background-color: #413F65;
   background-position: 0px 0px;
-  font: 16px/19px proxima_nova_bold, sans-serif;
+  font: 16px/19px roboto_bold, sans-serif;
   color: #FFFFFF;
 }
 body .wrapper aside ul li.active a::before {
@@ -126,7 +102,7 @@ body .wrapper header {
 body .wrapper header h1 {
   color: #ADA9C0;
   display: inline-block;
-  font: 14px/23px proxima_nova_regular, sans-serif;
+  font: 14px/23px roboto_regular, sans-serif;
   margin-top: 8px;
 }
 body .wrapper header h1::before {
@@ -139,7 +115,7 @@ body .wrapper header h1::before {
   width: 25px;
 }
 body .wrapper header h2 {
-  font: 36px/44px proxima_nova_bold;
+  font: 36px/44px roboto_bold;
   color: #fff;
   margin-top: 8px;
 }
@@ -174,7 +150,7 @@ body .wrapper header div button.switch {
   color: #fff;
   border: 1px solid #43766C;
   background-color: transparent;
-  font: 14px/17px proxima_nova_regular, sans-serif;
+  font: 14px/17px roboto_regular, sans-serif;
   margin-right: 15px;
 }
 body .wrapper header div button.switch:hover {
@@ -224,7 +200,7 @@ body .wrapper > section .search_form input {
   height: 55px;
   padding: 0px 22px;
   width: 440px;
-  font: 16px/19px proxima_nova_regular, sans-serif;
+  font: 16px/19px roboto_regular, sans-serif;
   color: #C3C5D5;
 }
 body .wrapper > section .search_form input::placeholder {
@@ -236,7 +212,7 @@ body .wrapper > section .add_product {
   border: none;
   color: #fff;
   display: inline-block;
-  font: 16px/16px proxima_nova_regular, sans-serif;
+  font: 16px/16px roboto_regular, sans-serif;
   height: 55px;
   transition: 0.21s;
   vertical-align: top;
@@ -269,7 +245,7 @@ body .wrapper > section .categories_form {
 body .wrapper > section .status_form h3,
 body .wrapper > section .categories_form h3 {
   color: #fff;
-  font: 18px/22px proxima_nova_bold, sans-serif;
+  font: 18px/22px roboto_bold, sans-serif;
   margin-bottom: 23px;
 }
 body .wrapper > section .status_form ul,
@@ -297,7 +273,7 @@ body .wrapper > section .categories_form ul li button span {
   border-radius: 50%;
   color: #9987FA;
   display: inline-block;
-  font: 12px/15px proxima_nova_bold, sans-serif;
+  font: 12px/15px roboto_bold, sans-serif;
   height: 22px;
   min-width: 22px;
   padding: 4px;
@@ -309,7 +285,7 @@ body .wrapper > section .categories_form ul li button span {
 body .wrapper > section .status_form ul li button h4,
 body .wrapper > section .categories_form ul li button h4 {
   color: #8F99D3;
-  font: 11px/14px proxima_nova_reglar, sans-serif;
+  font: 11px/14px roboto_reglar, sans-serif;
 }
 body .wrapper > section .status_form ul li button:hover,
 body .wrapper > section .categories_form ul li button:hover {
@@ -329,7 +305,7 @@ body .wrapper > section .product_content > div {
 }
 body .wrapper > section .product_content > div h3 {
   color: #fff;
-  font: 18px/22px proxima_nova_bold, sans-serif;
+  font: 18px/22px roboto_bold, sans-serif;
   margin-bottom: 23px;
 }
 body .wrapper > section .product_content > div table {
@@ -409,7 +385,7 @@ body .wrapper > section .product_content > div table tbody tr td:last-child form
 }
 body .wrapper > section .product_content > div table tbody tr td:last-child form .bootstrap-select .dropdown-toggle .filter-option .filter-option-inner .filter-option-inner-inner {
   color: #fff;
-  font: 14px/14px proxima_nova_regular, sans-serif;
+  font: 14px/14px roboto_regular, sans-serif;
   margin: 6px 0px;
 }
 body .wrapper > section .product_content > div .products_table thead tr th:nth-child(1) {
@@ -554,7 +530,7 @@ body .wrapper > section > div {
 }
 body .wrapper > section > div h3 {
   color: #fff;
-  font: 18px/22px proxima_nova_bold, sans-serif;
+  font: 18px/22px roboto_bold, sans-serif;
   margin-bottom: 23px;
 }
 body .wrapper > section > div table {
@@ -634,7 +610,7 @@ body .wrapper > section > div table tbody tr td:last-child form .bootstrap-selec
 }
 body .wrapper > section > div table tbody tr td:last-child form .bootstrap-select .dropdown-toggle .filter-option .filter-option-inner .filter-option-inner-inner {
   color: #fff;
-  font: 14px/14px proxima_nova_regular, sans-serif;
+  font: 14px/14px roboto_regular, sans-serif;
   margin: 6px 0px;
 }
 body .wrapper > section > div .products_table thead tr th:nth-child(1) {
@@ -914,7 +890,7 @@ body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) label 
 }
 body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) label span {
   color: #F84F4F;
-  font: 12px/12px proxima_nova_regular, sans-serif;
+  font: 12px/12px roboto_regular, sans-serif;
   margin-left: 10px;
 }
 body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) .upload_image {
@@ -978,7 +954,7 @@ body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) > ul l
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) > ul li label {
-  font: 14px/14px proxima_nova_regular, sans-serif;
+  font: 14px/14px roboto_regular, sans-serif;
   color: #A1A1A1;
   display: inline-block;
   vertical-align: top;
@@ -1042,7 +1018,7 @@ body .form_modal .modal-dialog .modal-content form > ul > li > textarea {
 body .form_modal .modal-dialog .modal-content form > ul > li > label {
   background-color: #fff;
   color: #A1A1A1;
-  font: 16px/26px proxima_nova_regular, sans-serif;
+  font: 16px/26px roboto_regular, sans-serif;
   left: 15px;
   padding: 0px 7px;
   pointer-events: none;
@@ -1066,7 +1042,7 @@ body .form_modal .modal-dialog .modal-content form > button {
   border-radius: 10px;
   border: none;
   color: #fff;
-  font: 16px/19px proxima_nova_bold, sans-serif;
+  font: 16px/19px roboto_bold, sans-serif;
   height: 55px;
   margin: 10px 0px 50px 0px;
   transition: 0.21s;

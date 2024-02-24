@@ -18,34 +18,10 @@
   font-family: roboto_black;
   src: url("../../fonts/Roboto-BLack.ttf");
 }
-@font-face {
-  font-family: proxima_nova_regular;
-  src: url("../../fonts/ProximaNova-Regular.otf");
-}
-@font-face {
-  font-family: proxima_nova_black;
-  src: url("../../fonts/Proxima Nova Black.otf");
-}
-@font-face {
-  font-family: proxima_nova_bold;
-  src: url("../../fonts/Proxima Nova Bold.otf");
-}
-@font-face {
-  font-family: proxima_nova_extra_bold;
-  src: url("../../fonts/Proxima Nova Extrabold.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
-}
 body .wrapper > section > a {
   color: #A1A1A1;
   display: block;
-  font: 18px/22px proxima_nova_bold, sans-serif;
+  font: 18px/22px roboto_bold, sans-serif;
   margin-bottom: 24px;
 }
 body .wrapper > section > a::before {
@@ -178,7 +154,7 @@ body .wrapper > section > ul > li:last-child form > ul > li input {
   border: 1px solid #D4E1EC;
   color: #A1A1A1;
   display: inline-block;
-  font: 16px/16px proxima_nova_regular, sans-serif;
+  font: 16px/16px roboto_regular, sans-serif;
   height: 58px;
   text-align: center;
   vertical-align: top;
@@ -189,7 +165,7 @@ body .wrapper > section > ul > li:last-child form > ul > li > button {
   border-radius: 10px;
   border: 1px solid #43766C;
   color: #43766C;
-  font: 16px/20px proxima_nova_regular, sans-serif;
+  font: 16px/20px roboto_regular, sans-serif;
   height: 58px;
   margin-top: 21px;
   transition: 0.21s;
@@ -242,7 +218,7 @@ body .wrapper > section > section {
 }
 body .wrapper > section > section h3 {
   color: #A1A1A1;
-  font: 18px/22px proxima_nova_bold, sans-serif;
+  font: 18px/22px roboto_bold, sans-serif;
   margin-bottom: 16px;
 }
 body .wrapper > section > section > ul > li {

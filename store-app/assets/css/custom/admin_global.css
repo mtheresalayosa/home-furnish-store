@@ -21,30 +21,6 @@
 @font-face {
   font-family: roboto_black;
   src: url("../../fonts/Roboto-BLack.ttf");
-} 
-@font-face {
-  font-family: proxima_nova_regular;
-  src: url("../../fonts/ProximaNova-Regular.otf");
-}
-@font-face {
-  font-family: proxima_nova_black;
-  src: url("../../fonts/Proxima Nova Black.otf");
-}
-@font-face {
-  font-family: proxima_nova_bold;
-  src: url("../../fonts/Proxima Nova Bold.otf");
-}
-@font-face {
-  font-family: proxima_nova_extra_bold;
-  src: url("../../fonts/Proxima Nova Extrabold.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
-}
-@font-face {
-  font-family: proxima_nova_thin;
-  src: url("../../fonts/Proxima Nova Thin.otf");
 }
 body {
   background-color: #1D5B79;
@@ -941,10 +917,13 @@ body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) label 
   font: 12px/12px roboto_regular, sans-serif;
   margin-left: 10px;
 }
+body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) .imgPreview {
+	display: inline-block;
+}
 body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) .upload_image {
-  width: 142px;
+	width: 142px;
   height: 142px;
-  border: 1px dashed #F3AA60;
+  border: 1px dashed #DAD3FF;
   border-radius: 10px;
   background-image: url("../../images/upload_image.svg");
   background-repeat: no-repeat;
@@ -959,6 +938,7 @@ body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) .uploa
 }
 body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) > input {
   display: none;
+	/* font: 16px/19px roboto_regular, 'sans serif' */
 }
 body .form_modal .modal-dialog .modal-content form > ul > li:nth-child(6) > ul {
   list-style: none;
