@@ -65,7 +65,7 @@
                 <ul>
                     <li>
                         <button type="submit" class="active">
-                            <span>36</span><img src="../assets/images/all_orders_icon.svg" alt="#"><h4>All Products</h4>
+                            <span>36</span><img src="../assets/images/all_orders_icon.svg" alt="#"><h4>All Orders</h4>
                         </button>
                     </li>
                     <li>
@@ -103,13 +103,14 @@
                         </tr>
                     </thead>
                     <tbody>
+<?php foreach($orders as $order) {?>
                         <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
+                            <td><span class="order_id"><a href="#"><?= $order["id"]?></a></span></td>
+                            <td><span><?= $order["created_at"]?></span></td>
+                            <td><span><?= $order["receiver_name"]?><span><?= $order["receiver_address"] ?></span></span></td>
+                            <td><span>$ <?= $order["total_amount"]?></span></td>
                             <td>
-                                <form action="process.php" method="post">
+                                <form action="/orders/update/<?= $order["id"]?>" method="post">
                                     <select class="selectpicker">
                                         <option>Pending</option>
                                         <option>On-Process</option>
@@ -119,281 +120,10 @@
                                 </form>
                             </td>
                         </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><span><a href="#">123</a></span></td>
-                            <td><span>09-06-2023</span></td>
-                            <td><span>Charlene Flora<span>123 Dojo Way, Bellevue, WA 98005</span></span></td>
-                            <td><span>$ 10</span></td>
-                            <td>
-                                <form action="process.php" method="post">
-                                    <select class="selectpicker">
-                                        <option>Pending</option>
-                                        <option>On-Process</option>
-                                        <option>Shipped</option>
-                                        <option>Delivered</option>
-                                      </select>
-                                </form>
-                            </td>
-                        </tr>
+<?php } ?>
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
+                <!-- <nav aria-label="Page navigation example">
                     <ul class="pagination">
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -411,7 +141,7 @@
                         </a>
                       </li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
         </section>
     </div>

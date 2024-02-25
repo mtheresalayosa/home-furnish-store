@@ -41,14 +41,6 @@
                 </li>
                 <li>
                     <h2><?= $product["name"] ?></h2>
-                    <ul class="rating">
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <span>36 Rating</span>
                     <span class="amount">$ <?= number_format($product['price'],2) ?></span>
                     <p><?= $product["description"] ?></p>
                     <form action="/add_to_cart" method="post" id="add_to_cart_form">
@@ -66,10 +58,10 @@
                                 <span class="total_amount">$ <?= $product['price'] ?></span>
                             </li>
                             <li>
-								<input type="hidden" name="subtotal_amount" id="subtotal_amount">
+								<input type="hidden" name="subtotal_amount" id="subtotal_amount" value="<?= $product['price'] ?>">
 								<input type="hidden" name="product_id" value="<?= $product['id'] ?>">
 								<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
-								<button type="submit" id="add_to_cart">Add to Cart</button>
+								<button type="button" id="add_to_cart">Add to Cart</button>
 							</li>
                         </ul>
                     </form>

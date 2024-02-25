@@ -1,5 +1,10 @@
 $(document).ready(function(){
-    $("body").on("click", ".profile_btn", function() {
+    $("body").on("click", ".guest_login", function() {
+		$.post('/guest_login', $('.login_form').serialize(),function(){
+			$(location).attr('href','/');
+		});
+	});
+	$("body").on("click", ".profile_btn", function() {
         $(".logout_btn").addClass("show");
         $(".popover_overlay").fadeIn();
         $("body").addClass("show_popover_overlay");

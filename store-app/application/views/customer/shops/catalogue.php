@@ -37,8 +37,12 @@
                         <label for="<?= $category["name"] ?>"><?= $category["name"] ?></label>
                     </li>
 <?php } ?>
+					<li>
+						<span>
+							<button type="submit">Search</button>
+						</span>
+					</li>
                 </ul>
-				<input type="submit" value="Search">
             </form>
             <div>
                 <h3>All Products(46)</h3>
@@ -48,20 +52,12 @@
                         <a href="product_view/<?= $product["id"] ?>">
                             <img src='../assets/images/<?= $product["photo"]?>' alt="#">
                             <h3><?= $product["name"] ?></h3>
-                            <!-- <ul class="rating">
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                                <li></li>
-                            </ul> -->
-                            <!-- <span>36 Rating</span> -->
                             <span class="price">$ <?= number_format($product['price'],2) ?></span>
                         </a>
                     </li>
 <?php } ?>
                 </ul>
-                <nav aria-label="Page navigation example">
+                <!-- <nav aria-label="Page navigation example">
                     <ul class="pagination">
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -79,7 +75,7 @@
                         </a>
                       </li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
         </section>
     </div>

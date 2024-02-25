@@ -91,32 +91,19 @@
             <button class="add_product" data-toggle="modal" data-target="#add_product_modal">Add Product</button>
             <form action="process.php" method="post" class="status_form">
                 <h3>Categories</h3>
-                <ul>
+                <ul class="categories">
                     <li>
                         <button type="submit" class="active">
-                            <span>36</span><img src="../assets/images/all_orders_icon.svg" alt="#"><h4>All Products</h4>
+                            <span>36</span><h4>All Products</h4>
                         </button>
                     </li>
+<?php foreach($categories as $category){?>
                     <li>
                         <button type="submit">
-                            <span>36</span><img src="../assets/images/pending_icon.svg" alt="#"><h4>Pending</h4>
+                            <span>36</span><h4><?= $category["name"]?></h4>
                         </button>
                     </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/on_process_icon.svg" alt="#"><h4>On-Process</h4>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/shipped_icon.svg" alt="#"><h4>Shipped</h4>
-                        </button>
-                    </li>
-                    <li>
-                        <button type="submit">
-                            <span>36</span><img src="../assets/images/delivered_icon.svg" alt="#"><h4>Delivered</h4>
-                        </button>
-                    </li>
+<?php } ?>
                 </ul>
             </form>
             <div>
@@ -146,7 +133,7 @@
                             <td><span>Storage & Organisation</span></td>
                             <td><span><?= $product["stocks"] ?></span></td>
                             <td><span><?= $product["unit_sold"] ?></span></td>
-                            <td>
+                            <!-- <td>
                                 <span>
                                     <button class="edit_product">Edit</button>
                                     <button class="delete_product">X</button>
@@ -156,12 +143,12 @@
                                     <button type="button" class="cancel_remove">Cancel</button>
                                     <button type="submit">Remove</button>
                                 </form>
-                            </td>
+                            </td> -->
                         </tr>
 <?php } ?>
                     </tbody>
                 </table>
-                <nav aria-label="Page navigation example">
+                <!-- <nav aria-label="Page navigation example">
                     <ul class="pagination">
                       <li class="page-item">
                         <a class="page-link" href="#" aria-label="Previous">
@@ -179,7 +166,7 @@
                         </a>
                       </li>
                     </ul>
-                </nav>
+                </nav> -->
             </div>
         </section>
         <div class="modal fade form_modal" id="add_product_modal" tabindex="-1" aria-hidden="true">

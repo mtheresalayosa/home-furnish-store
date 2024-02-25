@@ -6,6 +6,7 @@ body .wrapper > section > a {
   display: block;
   font: 18px/22px roboto_bold, sans-serif;
   margin-bottom: 20px;
+	width: 100px;
 }
 body .wrapper > section > a::before {
   background-image: url(../../images/left.svg);
@@ -352,4 +353,19 @@ body #card_details_modal .modal-dialog .modal-content button.success {
 .disable_button {
   pointer-events: none !important;
   opacity: 0.5;
+}
+.error {
+	border-color: red;
+}
+.pay_message {
+	font-style: italic;
+	text-align: left !important;
+	padding-bottom: 5px !important;
+	margin-left: 50px !important;
+}
+.pay_success {
+	color: green;
+}
+.pay_error {
+	color: red;
 }

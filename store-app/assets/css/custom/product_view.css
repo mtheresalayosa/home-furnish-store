@@ -168,8 +168,8 @@ body .wrapper > section > ul > li:last-child form > ul > li input {
 body .wrapper > section > ul > li:last-child form > ul > li > button {
   background-color: #fff;
   border-radius: 10px;
-  border: 1px solid #43766C;
-  color: #43766C;
+  border: 1px solid #1D5B79;
+  color: #1D5B79;
   font: 16px/20px roboto_regular, sans-serif;
   height: 58px;
   margin-top: 21px;
@@ -187,7 +187,7 @@ body .wrapper > section > ul > li:last-child form > ul > li > button::before {
   width: 20px;
 }
 body .wrapper > section > ul > li:last-child form > ul > li > button:hover {
-  background-color: #43766C;
+  background-color: #1D5B79;
   color: #fff;
 }
 body .wrapper > section > ul > li:last-child form > ul > li > ul {
@@ -210,7 +210,7 @@ body .wrapper > section > ul > li:last-child form > ul > li > ul li:last-child b
 body .wrapper > section > ul > li:last-child form > ul > li .total_amount {
   background-color: #F6F6F6;
   border-radius: 10px;
-  color: #43766C;
+  color: #1D5B79;
   display: inline-block;
   font: 16px/22px roboto_bold, sans-serif;
   height: 58px;

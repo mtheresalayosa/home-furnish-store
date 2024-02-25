@@ -45,6 +45,14 @@ class Users extends CI_Controller
 		}
 		redirect("login");
 	}
+	public function guest_login()
+	{
+		$guest_id = rand(9990000,9999999);
+		$session_user = array("id"=>$guest_id, "user_level"=>"0", "first_name"=>"GuestUser", "last_name"=>$guest_id); //user_level:0 means guest
+		$this->session->set_userdata("session_user",$session_user);
+		
+		redirect("/");
+	}
 	/* This method is called when user register as new member. */
 	public function signup()
 	{

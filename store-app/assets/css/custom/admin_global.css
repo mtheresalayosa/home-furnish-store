@@ -588,7 +588,18 @@ body .wrapper > section > div table tbody tr td form {
 body .wrapper > section > div table tbody tr td:first-child > span {
   border-radius: 20px 0px 0px 20px;
   font: 14px/17px roboto_bold, sans-serif;
-  text-wrap: nowrap;
+	white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+	width: 500px;
+}
+body .wrapper > section > div table tbody tr td:first-child > span.order_id {
+  border-radius: 20px 0px 0px 20px;
+  font: 14px/17px roboto_bold, sans-serif;
+	white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+	width: 135px;
 }
 body .wrapper > section > div table tbody tr td:first-child > span a{
   text-decoration: none;

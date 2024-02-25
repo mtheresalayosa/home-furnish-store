@@ -3,8 +3,8 @@
 <div class="wrapper">
 	<header>
 		<a href="/"><img src="../assets/images/home_furnish_logo_text.svg" alt="Home Furnish logo" class="site_logo"></a>
-		<form action="process.php" method="post" class="search_form">
-				<input type="text" name="search" placeholder="Search">
+		<form action="/products/search" method="get" class="search_form">
+			<input type="text" name="search_term" placeholder="Search">
 		</form>
 		<div class="header_content">
 <?php if(!$is_loggedin) {?>
@@ -13,6 +13,7 @@
 			<div class="btn_profile">
                 <button class="profile">
                     <img src="<?= base_url('assets/images/user-profile.svg')?>" alt="#">
+					<span><?= $user ?></span>
                 </button>
             </div>
             <div class="dropdown">
@@ -22,7 +23,7 @@
                 </div>
             </div>
 <?php } ?>
-			<a class="show_cart" href="/cart">(<?= $cart_count?>)</a>
+			<a class="show_cart" href="/cart">(<span id="top_cart_count"><?= $cart_count?></span>)</a>
 		</div>
 	</header>
 </div>

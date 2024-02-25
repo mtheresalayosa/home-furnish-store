@@ -13,7 +13,7 @@ $(document).ready(function() {
         return false;
     });
 
-    $("body").on("keyup", ".search_form", function() {
+    $("body").on("keyup", ".search_form input", function() {
         let form = $(this);
         filterProducts(form);
         $(".categories_form").find(".active").removeClass("active");

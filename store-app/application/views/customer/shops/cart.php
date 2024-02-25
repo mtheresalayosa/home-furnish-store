@@ -12,18 +12,19 @@
     <script src="<?php echo base_url('assets/js/vendor/popper.min.js')?>"></script>
     <script src="<?php echo base_url('assets/js/vendor/bootstrap.min.js')?>"></script>
     <script src="<?php echo base_url('assets/js/vendor/bootstrap-select.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/global/cart.js')?>"></script>
+	<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
     <link rel="stylesheet" href="<?php echo base_url('assets/css/vendor/bootstrap.min.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/vendor/bootstrap-select.min.css')?>">
 
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/global.css')?>">
     <link rel="stylesheet" href="<?php echo base_url('assets/css/custom/cart.css')?>">
-    <script src="<?php echo base_url('assets/js/global/cart.js')?>"></script>
 </head>
 <body>
     <div class="wrapper">
         <section >
             <a href="/">Go Back</a>
-            <h3>Total items: 4</h3>
+            <h3>Total item(s): <?=$cart_count?></h3>
             <section>
                 <form class="cart_items_form">
                     <ul>
@@ -35,7 +36,7 @@
                             <ul>
                                 <li>
                                     <label>Quantity</label>
-                                    <input type="text" min-value="1" value="<?= $cart["quantity"] ?>">
+                                    <input type="text" min-value="1" value="<?= $cart["quantity"] ?>" name="quantity">
                                     <ul>
                                         <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="1"></button></li>
                                         <li><button type="button" class="increase_decrease_quantity" data-quantity-ctrl="0"></button></li>
@@ -46,8 +47,11 @@
                                     <span class="total_amount">$ <?= $cart["subtotal_amount"] ?></span>
                                 </li>
                                 <li>
+									<input type="hidden" name="subtotal_amount" id="subtotal_amount" value="<?= $cart['subtotal_amount'] ?>">
 									<input type="hidden" name="product_id" value="<?= $cart["product_id"] ?>">
-									<input type="hidden" name="cart_id" value="<?= $cart["id"] ?>">
+									<input type="hidden" name="cart_id" value="<?= $cart["id"] ?>" id="cart_id">
+									<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+                        			<input type="hidden" name="action">
                                     <button type="button" class="remove_item"></button>
                                 </li>
                             </ul>
@@ -60,37 +64,38 @@
 <?php } ?>
                     </ul>
                 </form>
-                <form class="checkout_form">
+<?php if($cart_count != 0) { ?>
+                <form class="checkout_form" method="post">
                     <h3>Shipping Information</h3>
                     <input type="checkbox" name="same_billing" id="same_billing" checked class="form_checkbox">
                     <label for="same_billing">Same in billing</label>
                     <ul id="shipping_info">
                         <li>
-                            <input type="text" name="first_name" required>
+                            <input type="text" name="shipping_first_name" required>
                             <label>First Name</label>
                         </li>
                         <li>
-                            <input type="text" name="last_name" required>
+                            <input type="text" name="shipping_last_name" required>
                             <label>Last Name</label>
                         </li>
                         <li>
-                            <input type="text" name="address_1" required>
+                            <input type="text" name="shipping_address1" required>
                             <label>Address 1</label>
                         </li>
                         <li>
-                            <input type="text" name="address_2" required>
+                            <input type="text" name="shipping_address2">
                             <label>Address 2</label>
                         </li>
                         <li>
-                            <input type="text" name="city" required>
+                            <input type="text" name="shipping_city" required >
                             <label>City</label>
                         </li>
                         <li>
-                            <input type="text" name="state" required>
+                            <input type="text" name="shipping_state" required>
                             <label>State</label>
                         </li>
                         <li>
-                            <input type="text" name="zip_code" required>
+                            <input type="text" name="shipping_zip_code" required>
                             <label>Zip Code</label>
                         </li>
                     </ul>
@@ -98,73 +103,80 @@
                         <h3>Billing Information</h3>
                         <ul>
                             <li>
-                                <input type="text" name="first_name" required>
+                                <input type="text" name="billing_first_name">
                                 <label>First Name</label>
                             </li>
                             <li>
-                                <input type="text" name="last_name" required>
+                                <input type="text" name="billing_last_name">
                                 <label>Last Name</label>
                             </li>
                             <li>
-                                <input type="text" name="address_1" required>
+                                <input type="text" name="billing_address_1">
                                 <label>Address 1</label>
                             </li>
                             <li>
-                                <input type="text" name="address_2" required>
+                                <input type="text" name="billing_address_2">
                                 <label>Address 2</label>
                             </li>
                             <li>
-                                <input type="text" name="city" required>
+                                <input type="text" name="billing_city">
                                 <label>City</label>
                             </li>
                             <li>
-                                <input type="text" name="state" required>
+                                <input type="text" name="billing_state">
                                 <label>State</label>
                             </li>
                             <li>
-                                <input type="text" name="zip_code" required>
+                                <input type="text" name="billing_zip_code">
                                 <label>Zip Code</label>
                             </li>
                         </ul>
                     </div>
                     <h3>Order Summary</h3>
-                    <h4>Items <span>$ 40</span></h4>
-                    <h4>Shipping Fee <span>$ 5</span></h4>
-                    <h4 class="total_amount">Total Amount <span>$ 45</span></h4>
-                    <button type="button" data-toggle="modal" data-target="#card_details_modal">Proceed to Checkout</button>
+                    <h4 id="checkout_subtotal">Sub-total <span>$ <?= $subtotal_amount ?></span></h4>
+                    <h4>Shipping Fee <span>$ 50</span></h4>
+                    <h4 class="total_amount">Total Amount <span class="checkout_total">$ <?= $subtotal_amount + 50 ?></span></h4>
+                    <!-- <button type="button" data-toggle="modal" data-target="#card_details_modal">Proceed to Checkout</button> -->
+                    <button type="submit" id="btn_checkout">Proceed to Checkout</button>
                 </form>
+<?php } ?>
             </section>
         </section>
         <!-- Button trigger modal -->
-        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#card_details_modal">
-            Launch demo modal
-        </button> -->
         <div class="modal fade form_modal" id="card_details_modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <button data-dismiss="modal" aria-label="Close" class="close_modal"></button>
-                    <form action="process.php" method="post">
+                    <form action="/process_payment" class="pay_form" method="post" data-cc-on-file="false"
+							data-stripe-publishable-key="<?= $stripe_key ?>">
                         <h2>Card Details</h2>
+						<p class="pay_message"></p>
                         <ul>
                             <li>
-                                <input type="text" name="card_name" required>
-                                <label>Card Name</label>
+                                <input type="text" name="card_name" required class="card-name" >
+                                <label>Name on Card</label>
                             </li>
                             <li>
-                                <input type="number" name="card_number" required>
+                                <input type="number" name="card_number" required maxlength='20' autocomplete='off' class="card-number">
                                 <label>Card Number</label>
                             </li>
                             <li>
-                                <input type="month" name="expiration" required>
-                                <label>Exp Date</label>
-                            </li>
-                            <li>
-                                <input type="number" name="cvc" required>
+                                <input type="number" name="cvc" required placeholder='ex. 311'
+										maxlength='4' autocomplete='off' class="card-cvc">
                                 <label>CVC</label>
                             </li>
+                            <li>
+                                <input type="number" name="expiry-year" required class="card-expiry-year" maxlength='4' placeholder="ex. 2030">
+                                <label>Exp Year</label>
+                            </li>
+                            <li>
+                                <input type="number" name="expiry-month" required class="card-expiry-month" maxlength='2' placeholder="ex. 09">
+                                <label>Exp Month</label>
+                            </li>
                         </ul>
-                        <h3>Total Amount <span>$ 45</span></h3>
-                        <button type="button">Pay</button>
+                        <h3>Total Amount <span class="checkout_total">$ <?= $subtotal_amount + 50 ?></span></h3>
+						<input type="hidden" name="<?=$csrf['name'];?>" value="<?=$csrf['hash'];?>" />
+                        <button type="submit" class="btn_pay">Pay</button>
                     </form>
                 </div>
             </div>

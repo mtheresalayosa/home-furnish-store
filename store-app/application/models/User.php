@@ -116,7 +116,7 @@ class User extends CI_Model
 	function is_admin()
 	{
 		$current_user = $this->current_user();
-		if($current_user["user_level"] == '5')
+		if($current_user && $current_user["user_level"] == '5')
 		{
 			return true;
 		} 
@@ -138,18 +138,12 @@ class User extends CI_Model
 	}
 	function current_user()
 	{
-		$current_user = $this->session->userdata("user");
-		if($current_user)
+		if($this->session->has_userdata("user"))
 		{
-			return $current_user;
+			return $this->session->userdata("user");
 		}
-		else {
-			if(!$this->session->userdata("session_user"))
-			{
-				$guest_id = "999".rand(9000,9999);
-				$session_user = array("id"=>$guest_id, "user_level"=>"0", "first_name"=>"GuestUser", "last_name"=>$guest_id); //user_level:0 means guest
-				$this->session->set_userdata("session_user",$session_user);
-			}
+		if($this->session->has_userdata("session_user"))
+		{
 			return $this->session->userdata("session_user");
 		}
 	}
