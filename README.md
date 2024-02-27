@@ -9,4 +9,6 @@ Online store for home decor and other interior improvement products.
 5. HTML/CSS
 
 **ERD:** (https://github.com/mtheresalayosa/home-furnish-store/blob/main/onlinestore-erd-v4.png)
-
+## Credits
+Original UI: Jhaver Gurtiza (Village88 Senior Frontend/UI Designer)
+https://www.figma.com/file/lnxxTTQStJyVsuWAa8FiDJ/Organic-Shop?type=design&node-id=0-1&mode=design
